@@ -21,11 +21,32 @@ router.post('/roomPost',async (req, res)=> {
     const room = new Room(req.body);
     try{
         const savedRoom = await room.save()
-        res.send("Room created successfully!!")
+        res.render('successfulCreation')
     }
     catch(err){
         res.json({message: err});
     }
 })
 
+
+//Join room
+router.get('/joinRoom', (req, res) => {
+    res.render('joinRoom')
+})
+
+router.post('/joinRoomData',async (req, res) => {
+    // console.log(req.body.rname);
+    // const room = new Room(req.body);
+    try{
+        const room =await Room.findOne({rname: req.body.rname, rcode: req.body.rcode});
+        if(room == undefined)
+            res.render('../views/roomLogin/unsucLogin.handlebars', {rname: req.body.rname})
+        else
+            res.render('../views/roomLogin/sucLogin.handlebars', {rname: req.body.rname})
+            
+    }
+    catch(err){
+        res.json({message: err})
+    }
+})
 module.exports = router;
