@@ -1,7 +1,11 @@
 const mongoose = require('mongoose');
 
-const memberSchema = mongoose.Schema({
-    name: {
+const MemberSchema = mongoose.Schema({
+    rname: {
+        type: String,
+        required: true
+    },
+    mname: {
         type: String,
         required: true
     }

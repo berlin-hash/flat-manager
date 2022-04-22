@@ -10,6 +10,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@handlebars/allow-prototype-access": "^1.0.5",
     "body-parser": "^1.20.0",
     "cors": "^2.8.5",
     "dotenv": "^16.0.0",
@@ -18,5 +19,8 @@
     "express-readme": "^0.0.5",
     "mongoose": "^6.3.0",
     "nodemon": "^2.0.15"
+  },
+  "devDependencies": {
+    "handlebars": "^4.5.0"
   }
 }

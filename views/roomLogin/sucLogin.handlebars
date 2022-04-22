@@ -1,6 +1,39 @@
 <div class="jumbotron jumbotron-fluid">
-  <div class="container">
-    <h1 class="display-4">Hey!! Is the {{rname}} clean?</h1>
-    <p class="lead">This is a modified jumbotron that occupies the entire horizontal space of its parent.</p>
-  </div>
+    <div class="container">
+        <h1 class="display-4">Hey!! Is the {{rname}} clean?</h1>
+        <p class="lead">This is a modified jumbotron that occupies the entire horizontal space of its parent.</p>
+
+
+        <div class="accordion" id="accordionExample">
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="headingOne">
+                    <button class="accordion-button btn-primary" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                        Add a member
+                    </button>
+                </h2>
+                <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne"
+                    data-bs-parent="#accordionExample">
+                    <form action="/addMember" method="post">
+                        <div class="mb-3">
+                            <label for="memeber-name" class="form-label">Enter name</label>
+                            <input type="text" name="mname" class="form-control" id="mname"
+                                aria-describedby="emailHelp">
+                            <input type="hidden" id="rname" name="rname" value={{rname}}>
+                        </div>
+
+
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </form>
+                </div>
+            </div>
+
+        </div>
+        <p>{{members}}</p>
+        <ul class="container my-3">
+            {{#each members}}
+                <li>{{this.mname}}</li>
+            {{/each}}
+        </ul>
+    </div>
 </div>
