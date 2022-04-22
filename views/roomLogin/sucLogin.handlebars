@@ -14,12 +14,14 @@
                 </h2>
                 <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne"
                     data-bs-parent="#accordionExample">
-                    <form action="/addMember" method="post">
+                    <form action="/joinRoomData" method="post">
                         <div class="mb-3">
                             <label for="memeber-name" class="form-label">Enter name</label>
                             <input type="text" name="mname" class="form-control" id="mname"
                                 aria-describedby="emailHelp">
                             <input type="hidden" id="rname" name="rname" value={{rname}}>
+                            <input type="hidden" id="rcode" name="rcode" value={{rcode}}>
+                            <input type="hidden" id="memBool" name="memBool" value="1">
                         </div>
 
 
@@ -29,7 +31,7 @@
             </div>
 
         </div>
-        <p>{{members}}</p>
+        {{!-- <p>{{members}}</p> --}}
         <ul class="container my-3">
             {{#each members}}
                 <li>{{this.mname}}</li>
